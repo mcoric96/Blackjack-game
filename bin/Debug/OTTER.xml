@@ -1,0 +1,922 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OTTER</name>
+    </assembly>
+    <members>
+        <member name="T:OTTER.BGL">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="F:OTTER.BGL.START">
+            <summary>
+            Uvjet izvršavanja igre. Ako je <c>START == true</c> igra će se izvršavati.
+            </summary>
+            <example><c>START</c> se često koristi za beskonačnu petlju. Primjer metode/skripte:
+            <code>
+            private int MojaMetoda()
+            {
+                while(START)
+                {
+                  //ovdje ide kod
+                }
+                return 0;
+            }</code>
+            </example>
+        </member>
+        <member name="F:OTTER.BGL.spriteCount">
+            <summary>
+            Broj likova.
+            </summary>
+        </member>
+        <member name="F:OTTER.BGL.soundCount">
+            <summary>
+            Broj likova.
+            </summary>
+        </member>
+        <member name="F:OTTER.BGL.allSprites">
+            <summary>
+            Lista svih likova.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.DrawTextOnScreen(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Crta tekst po pozornici.
+            </summary>
+            <param name="sender">-</param>
+            <param name="e">-</param>
+        </member>
+        <member name="M:OTTER.BGL.#ctor">
+            <summary>
+            BGL
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.Wait(System.Double)">
+            <summary>
+            Pričekaj (pauza) u sekundama.
+            </summary>
+            <example>Pričekaj pola sekunde: <code>Wait(0.5);</code></example>
+            <param name="sekunde">Realan broj.</param>
+        </member>
+        <member name="M:OTTER.BGL.Init">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.showSyncRate(System.Boolean)">
+            <summary>
+            -
+            </summary>
+            <param name="val">-</param>
+        </member>
+        <member name="M:OTTER.BGL.updateSyncRate">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.SetStageTitle(System.String)">
+            <summary>
+            Postavi naslov pozornice.
+            </summary>
+            <param name="title">tekst koji će se ispisati na vrhu (naslovnoj traci).</param>
+        </member>
+        <member name="M:OTTER.BGL.setBackgroundColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Postavi boju pozadine.
+            </summary>
+            <param name="r">r</param>
+            <param name="g">g</param>
+            <param name="b">b</param>
+        </member>
+        <member name="M:OTTER.BGL.setBackgroundColor(System.Drawing.Color)">
+            <summary>
+            Postavi boju pozornice. <c>Color</c> je ugrađeni tip.
+            </summary>
+            <param name="color"></param>
+        </member>
+        <member name="M:OTTER.BGL.setBackgroundPicture(System.String)">
+            <summary>
+            Postavi sliku pozornice.
+            </summary>
+            <param name="backgroundImage">Naziv (putanja) slike.</param>
+        </member>
+        <member name="M:OTTER.BGL.setPictureLayout(System.String)">
+            <summary>
+            Izgled slike.
+            </summary>
+            <param name="layout">none, tile, stretch, center, zoom</param>
+        </member>
+        <member name="M:OTTER.BGL.loadSound(System.Int32,System.String)">
+            <summary>
+            Učitaj zvuk.
+            </summary>
+            <param name="soundNum">-</param>
+            <param name="file">-</param>
+        </member>
+        <member name="M:OTTER.BGL.playSound(System.Int32)">
+            <summary>
+            Sviraj zvuk.
+            </summary>
+            <param name="soundNum">-</param>
+        </member>
+        <member name="M:OTTER.BGL.loopSound(System.Int32)">
+            <summary>
+            loopSound
+            </summary>
+            <param name="soundNum">-</param>
+        </member>
+        <member name="M:OTTER.BGL.stopSound(System.Int32)">
+            <summary>
+            Zaustavi zvuk.
+            </summary>
+            <param name="soundNum">broj</param>
+        </member>
+        <member name="M:OTTER.BGL.openFileToRead(System.String,System.Int32)">
+            <summary>
+            Otvori datoteku za čitanje.
+            </summary>
+            <param name="fileName">naziv datoteke</param>
+            <param name="fileNum">broj</param>
+        </member>
+        <member name="M:OTTER.BGL.closeFileToRead(System.Int32)">
+            <summary>
+            Zatvori datoteku.
+            </summary>
+            <param name="fileNum">broj</param>
+        </member>
+        <member name="M:OTTER.BGL.openFileToWrite(System.String,System.Int32)">
+            <summary>
+            Otvori datoteku za pisanje.
+            </summary>
+            <param name="fileName">naziv datoteke</param>
+            <param name="fileNum">broj</param>
+        </member>
+        <member name="M:OTTER.BGL.closeFileToWrite(System.Int32)">
+            <summary>
+            Zatvori datoteku.
+            </summary>
+            <param name="fileNum">broj</param>
+        </member>
+        <member name="M:OTTER.BGL.writeLine(System.Int32,System.String)">
+            <summary>
+            Zapiši liniju u datoteku.
+            </summary>
+            <param name="fileNum">broj datoteke</param>
+            <param name="line">linija</param>
+        </member>
+        <member name="M:OTTER.BGL.readLine(System.Int32)">
+            <summary>
+            Pročitaj liniju iz datoteke.
+            </summary>
+            <param name="fileNum">broj datoteke</param>
+            <returns>vraća pročitanu liniju</returns>
+        </member>
+        <member name="M:OTTER.BGL.readFile(System.Int32)">
+            <summary>
+            Čita sadržaj datoteke.
+            </summary>
+            <param name="fileNum">broj datoteke</param>
+            <returns>vraća sadržaj</returns>
+        </member>
+        <member name="M:OTTER.BGL.hideMouse">
+            <summary>
+            Sakrij strelicu miša.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.showMouse">
+            <summary>
+            Pokaži strelicu miša.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.isMousePressed">
+            <summary>
+            Provjerava je li miš pritisnut.
+            </summary>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:OTTER.BGL.isKeyPressed(System.String)">
+            <summary>
+            Provjerava je li tipka pritisnuta.
+            </summary>
+            <param name="key">naziv tipke</param>
+            <returns></returns>
+        </member>
+        <member name="M:OTTER.BGL.isKeyPressed(System.Windows.Forms.Keys)">
+            <summary>
+            Provjerava je li tipka pritisnuta.
+            </summary>
+            <param name="key">tipka</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="T:OTTER.BGL.BetChangeEvent">
+            <summary>
+            Delegat koji sluzi za dogadjaj promjene oklade igraca .
+            </summary>
+            <param name="oklada"></param>
+        </member>
+        <member name="T:OTTER.BGL.ClearBetEvent">
+            <summary>
+            Delegat koji sluzi za dogadjaj postavljanja oklade korisnika na 0
+            </summary>
+        </member>
+        <member name="E:OTTER.BGL.BetChange">
+            <summary>
+            Dogadjaj kad igrac promjeni okladu u igri.
+            </summary>
+        </member>
+        <member name="E:OTTER.BGL.ClearBet">
+            <summary>
+            Dogadjaj kad igrac postavi okladu na 0 tj. pobrise je.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.SetGame">
+            <summary>
+            Metoda kojom postavimo pocetne vrijednosti igre.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.SetNextRound">
+            <summary>
+            Metoda kojom pripremimo sljedecu rundu za igru.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.Play(Blackjack.Player,System.Int32)">
+            <summary>
+            Metoda kojom igra igrac.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.Play">
+            <summary>
+            Metoda koja oponasa igru djelitelja.Djelitelj igra po fiksnim pravilima.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.ClearStage">
+            <summary>
+            Metoda kojom na kraju runde ocistimo ekran od svih karata.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.LoadSettings">
+            <summary>
+            Postavimo pocetne vrijednosti pri ucitavanju igre.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.ClearBet_Clicked">
+            <summary>
+            Kliknuta kontrola Clear bet,metoda koja oponasa taj dogadjaj.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.AddBet(System.Int32)">
+            <summary>
+            Metoda za dogadjaj kad korisnik doda novu okladu u igru.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.UpdateGameTimer(System.Object,System.EventArgs)">
+            <summary>
+            Metoda kojom kotroliramo timer igre,tj dogadjaje u igri ako je aktivna,pola sekunde razmaka.
+            </summary>
+        </member>
+        <member name="F:OTTER.BGL.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OTTER.BGL.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OTTER.BGL.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:OTTER.FormStrategy.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OTTER.FormStrategy.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OTTER.FormStrategy.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:OTTER.Game">
+            <summary>
+            Klasa za općenite aktivnosti vezane uz igru.
+            </summary>
+        </member>
+        <member name="M:OTTER.Game.WaitMS(System.Int32)">
+            <summary>
+            Pauzira izvršavanje trenutne metode
+            </summary>
+            <param name="ms"></param>
+        </member>
+        <member name="M:OTTER.Game.AddSprite(OTTER.Sprite)">
+            <summary>
+            Instanciranje novog lika.
+            </summary>
+            <param name="file">Naziv i putanja datoteke koja sadrži sliku lika.</param>
+            <param name="x">koordinata lika</param>
+            <param name="y">koordinata lika</param>
+            <returns>Vraća Sprite</returns>        
+        </member>
+        <member name="M:OTTER.Game.StartScriptAndWait(System.Func{System.Int32})">
+            <summary>
+            Metoda koja poziva izvršavanje metode <c>scriptName</c> te čeka završetak izvođenja.
+            </summary>
+            <remarks>Ponaša se isto kao i metoda <see cref="M:OTTER.Game.StartScript(System.Func{System.Int32})"/> osim što čeka završetak izvođenja da bi se moglo prijeći na iduću naredbu.</remarks>
+            <param name="scriptName"></param>
+        </member>
+        <member name="M:OTTER.Game.StartScript(System.Func{System.Int32})">
+            <summary>
+            Metoda koja poziva paralelno izvršavanje metode <c>scriptName</c>.
+            </summary>
+            <param name="scriptName"></param>
+            <example>
+            <para>Metoda (skripta ili procedura) koju pokreće <c>Game.StartScript</c> mora biti napisana na određen način inače se neće prihvatiti. 
+            Metoda mora imati povratnu vrijednost tipa <c>int</c> koja se može koristiti za povratnu informaciju je li se dogodila pogreška (npr. 0 nije bilo pogreške). 
+            Sve metode/skripte pozvane putem Game.StartScript() se izvršavaju istovremeno.
+            </para>
+            Primjer:
+            <code>
+            private int MetodaLika()
+            {
+                //kod
+                return 0;
+            }
+            </code>
+            <para>Obično se za aktivnosti lika koje traju dulje vrijeme (ili tijekom trajanja igre) koristi petlja while. 
+            Pri tome se za uvjet petlje koristi vrijabla START (vidi: <see cref="F:OTTER.BGL.START"/>).
+            <code>
+            while (START)
+            {
+                //radi nešto
+            }
+            </code>
+            </para>
+            </example>
+        </member>
+        <member name="T:OTTER.Sensing">
+            <summary>
+            Klasa <c>Sensing</c> služi za očitavanje događaja s tipkovnice i miša.
+            </summary>
+        </member>
+        <member name="F:OTTER.Sensing.Mouse">
+            <summary>
+            Koordinate miša.
+            </summary>
+        </member>
+        <member name="F:OTTER.Sensing.MouseDown">
+            <summary>
+            Miš pritisnut.
+            </summary>
+        </member>
+        <member name="P:OTTER.Sensing.KeyPressedTest">
+            <summary>
+            Je li bilo koja tipka pritisnuta.
+            </summary>
+        </member>
+        <member name="P:OTTER.Sensing.Key">
+            <summary>
+            Tipka koja je pritisnuta (string).
+            </summary>
+        </member>
+        <member name="M:OTTER.Sensing.#ctor">
+            <summary>
+            Konstruktor
+            </summary>
+        </member>
+        <member name="M:OTTER.Sensing.KeyPressed(System.String)">
+            <summary>
+            Provjerava je li tipka koja je poslana kao parametar pritisnuta.
+            </summary>
+            <param name="keyName">Naziv tipke.</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:OTTER.Sensing.KeyPressed(System.Windows.Forms.Keys)">
+            <summary>
+            Provjerava je li tipka koja je poslana kao parametar pritisnuta.
+            </summary>
+            <param name="key">Ugrađeni tip <c>Keys</c></param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:OTTER.Sensing.KeyPressed">
+            <summary>
+            Provjerava je li bilo koja tipka pritisnuta.
+            </summary>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:OTTER.Sensing.KeyUp">
+            <summary>
+            Tipka otpuštena.
+            </summary>
+        </member>
+        <member name="M:OTTER.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:OTTER.Sprite">
+            <summary>
+            Klasa Sprite predstavlja lika.
+            </summary>
+        </member>
+        <member name="T:OTTER.Sprite.RotationStylesType">
+            <summary>
+            Način rotacije slike lika.
+            </summary>
+        </member>
+        <member name="F:OTTER.Sprite.RotationStylesType.LeftRight">
+            <summary>
+            Lijevo - desno
+            </summary>
+        </member>
+        <member name="F:OTTER.Sprite.RotationStylesType.DontRotate">
+            <summary>
+            Nemoj rotirati
+            </summary>
+        </member>
+        <member name="F:OTTER.Sprite.RotationStylesType.AllAround">
+            <summary>
+            Rotiraj
+            </summary>
+        </member>
+        <member name="T:OTTER.Sprite.DirectionsType">
+            <summary>
+            Smjer
+            </summary>
+        </member>
+        <member name="P:OTTER.Sprite.X">
+            <summary>
+            X koordinata.
+            </summary>
+            <remarks><c>set</c> osigurava da lik ne izlazi van ruba <see cref="!:GameOptions"/></remarks>
+        </member>
+        <member name="P:OTTER.Sprite.Y">
+            <summary>
+            Y koordinata.
+            </summary>
+            <remarks><c>set</c> osigurava da lik ne izlazi van ruba <see cref="!:GameOptions"/></remarks>
+        </member>
+        <member name="P:OTTER.Sprite.Width">
+            <summary>
+            Širina lika.
+            </summary>
+        </member>
+        <member name="P:OTTER.Sprite.Heigth">
+            <summary>
+            Visina lika.
+            </summary>
+        </member>
+        <member name="F:OTTER.Sprite.RotationStyle">
+             <summary>
+             Stil rotacije.
+             </summary>
+            <remarks>Pogledajte: <see cref="T:OTTER.Sprite.RotationStylesType"/></remarks>
+        </member>
+        <member name="F:OTTER.Sprite.CurrentCostume">
+            <summary>
+            Trenutna slika (kostim) lika.
+            </summary>
+        </member>
+        <member name="F:OTTER.Sprite.Name">
+            <summary>
+            Ime spritea,oni spriteovi koji nisu pozadina za igru se mogu brisati
+            </summary>
+        </member>
+        <member name="M:OTTER.Sprite.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Konstruktor za Sprite.
+            </summary>
+            <param name="spriteImage">naziv/putanja slike</param>
+            <param name="posX">x koordinata lika</param>
+            <param name="posY">y koordinata lika</param>
+            <remarks>Sprite se može instancirati i uz pomoć metode NewSprite koja se nalazi u klasi Game: <see cref="!:Game.NewSprite"/>.</remarks>
+        </member>
+        <member name="M:OTTER.Sprite.GetDirection">
+            <summary>
+            Vraća trenutni smjer.
+            </summary>
+            <returns>smjer</returns>
+        </member>
+        <member name="M:OTTER.Sprite.GetHeading">
+            <summary>
+            Vraća trenutni smjer.
+            </summary>
+            <returns>smjer</returns>
+        </member>
+        <member name="M:OTTER.Sprite.SetDirection(System.Int32)">
+            <summary>
+            Metoda koja radi isto kao SetHeading
+            </summary>
+            <param name="direction">kut</param>
+        </member>
+        <member name="M:OTTER.Sprite.CenterX">
+            <summary>
+            Središte lika.
+            </summary>
+            <returns>x koordinata središta lika.</returns>
+        </member>
+        <member name="M:OTTER.Sprite.CenterY">
+            <summary>
+            Središte lika.
+            </summary>
+            <returns>y koordinata središta lika.</returns>
+        </member>
+        <member name="M:OTTER.Sprite.GotoXY(System.Int32,System.Int32)">
+            <summary>
+            Metoda koja postavlja lika na (posX, posY) koordinate.
+            </summary>
+            <param name="posX">x koordinata</param>
+            <param name="posY">y koordinata</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetX(System.Int32)">
+            <summary>
+            Postavlja x koordinatu.
+            </summary>
+            <param name="posX">x koordinata.</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetY(System.Int32)">
+            <summary>
+            Postavlja y koordinatu.
+            </summary>
+            <param name="posY">y koordinata.</param>
+        </member>
+        <member name="M:OTTER.Sprite.Goto_Sprite(OTTER.Sprite)">
+            <summary>
+            Idi do lika koji je poslan kao parametar. Postavlja se na istu poziciju (prema sredini).
+            </summary>
+            <param name="sprite">Lik do kojeg treba ići.</param>
+        </member>
+        <member name="M:OTTER.Sprite.Goto_MousePoint(System.Drawing.Point)">
+            <summary>
+            Idi do strelice miša.
+            </summary>
+            <param name="mouse">Koorinate miša (točka).</param>
+        </member>
+        <member name="M:OTTER.Sprite.ChangeX(System.Int32)">
+            <summary>
+            Promijeni x koordinatu za n.
+            </summary>
+            <example>Promijeni x koordinatu za 5:
+            <code>lik.ChangeX(5);</code>
+            </example>
+            <param name="n">cijeli broj za koji se mijenja x koordinata.</param>
+        </member>
+        <member name="M:OTTER.Sprite.ChangeY(System.Int32)">
+            <summary>
+            Promijeni y koordinatu za n.
+            </summary>
+            <param name="n">cijeli broj za koji se mijenja y koordinata.</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetHeading(OTTER.Sprite.DirectionsType)">
+            <summary>
+            Postavlja smjer.
+            </summary>
+            <param name="heading">Definirani tip.</param>
+        </member>
+        <member name="M:OTTER.Sprite.MoveSimple(System.Int32)">
+            <summary>
+            Metoda koja pomiče lika u 4 osnovna smjera: lijevo, desno, gore i dolje.
+            </summary>
+            <param name="steps">broj koraka</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetHeading(System.Int32)">
+            <summary>
+            Postavlja smjer lika.
+            </summary>
+            <param name="newDirectionAngle">Novi smjer u stupnjevima.</param>
+        </member>
+        <member name="M:OTTER.Sprite.PointToMouse(System.Drawing.Point)">
+            <summary>
+            Okreni lika prema strelici miša.
+            </summary>
+            <remarks>Tip <see cref="T:System.Drawing.Point"/> ima koordinate x i y.</remarks>
+            <param name="mis">Koordinate strelica miša</param>
+        </member>
+        <member name="M:OTTER.Sprite.PointToSprite(OTTER.Sprite)">
+            <summary>
+            Okreni se prema drugom liku. Okrenut će se prema sredini drugog lika.
+            </summary>
+            <param name="sprite">Lik prema kojem se treba okrenuti.</param>
+        </member>
+        <member name="M:OTTER.Sprite.MoveSteps(System.Int32)">
+            <summary>
+            Pomakni se u trenutnom smjeru za definirani broj koraka.
+            </summary>
+            <param name="steps">Broj koraka za pomicanje.</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetTransparentColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Postavlja prozirnu boju.
+            </summary>
+            <param name="r">-</param>
+            <param name="g">-</param>
+            <param name="b">-</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetTransparentColor(System.Drawing.Color)">
+            <summary>
+            Postavlja prozirnu boju.
+            </summary>
+            <remarks>Tip <see cref="T:System.Drawing.Color"/> je postojeći tip u C#.</remarks>
+            <param name="color">boja lika</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetSize(System.Int32)">
+            <summary>
+            Postavi veličinu lika. Ako se postavi 100, vraća se na početnu.
+            Ako se postavi na manje od 100 lik će se smanjiti, 
+            a ako se postavi na veće od 100, lik će se povećati.
+            </summary>
+            <param name="size">Veličina lika (postotak).</param>
+        </member>
+        <member name="M:OTTER.Sprite.SetVisible(System.Boolean)">
+            <summary>
+            Postavlja vidljivost lika.
+            </summary>
+            <example>Ovo se može postići i postavljanjem vrijednosti Show na true ili false:
+            <code>lik.Show = true;</code></example>
+            <param name="value">true ili false</param>
+        </member>
+        <member name="M:OTTER.Sprite.AddCostumes(System.String[])">
+            <summary>
+            Dodaj kostime.
+            </summary>
+            <param name="files">popis naziva datoteka.</param>
+        </member>
+        <member name="M:OTTER.Sprite.NextCostume">
+            <summary>
+            Uzima sljedeći kostim. Napomena: U ovoj se verziji može rotirati samo prvi kostim.
+            </summary>
+        </member>
+        <member name="M:OTTER.Sprite.TouchingRightEdge">
+            <summary>
+            Sljedeći kostim.
+            </summary>
+        </member>
+        <member name="M:OTTER.Sprite.TouchingEdge">
+            <summary>
+            Provjerava da li lik dira rub pozornice/prozora.
+            </summary>
+            <returns>vraća true ako dira, odnosno false ako ne dira.</returns>
+        </member>
+        <member name="M:OTTER.Sprite.TouchingEdge(System.String@)">
+            <summary>
+            Provjerava da li lik dira rub pozornice/prozora.
+            </summary>
+            <param name="edge">Vraća koji rub dira: left, right, up, down.</param>
+            <returns>-</returns>
+        </member>
+        <member name="M:OTTER.Sprite.TouchingSprite(OTTER.Sprite)">
+            <summary>
+            Provjerava da li lik dira nekog drugog lika.
+            </summary>
+            <param name="b">Lik kojeg možda dira.</param>
+            <returns>Vraća true/false.</returns>
+        </member>
+        <member name="M:OTTER.Sprite.TouchingMousePoint(System.Drawing.Point)">
+            <summary>
+            Provjerava da li lik dira strelicu miša.
+            </summary>
+            <param name="m">Pozicija miša.</param>
+            <returns>Vraća true/false.</returns>
+        </member>
+        <member name="M:OTTER.Sprite.Clicked(System.Drawing.Point)">
+            <summary>
+            Provjerava je li lik kliknut. Za provjeru je potrebno poslati koordinate strelice miša. 
+            Koordinate (točka) miša se mogu dobiti iz "sensing".
+            </summary>
+            <param name="mousePoint">Koordinate strelice miša.</param>
+            <returns></returns>
+        </member>
+        <member name="F:OTTER.TestForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OTTER.TestForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OTTER.TestForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:OTTER.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources._100chip">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources._25chips">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources._50chips">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources._5chip">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources.blackjack_basic_strategy_card">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources.blackjack_table_related_keywords_suggestions_blackjack_table_long_duA9Z8_clipart">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:OTTER.Properties.Resources.dolar">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:TrenutniIgrac">
+            <summary>
+            Popis igraca u igri
+            </summary>
+        </member>
+        <member name="T:Blackjack.BlackjackGame">
+            <summary>
+            Klasa sa metodama i svojstvima koje oponasaju pravila igre.
+            </summary>
+        </member>
+        <member name="F:Blackjack.BlackjackGame.TrenutniIgrac">
+            <summary>
+            Zelimo znati tko je trenutni igrac koji igra
+            </summary>
+        </member>
+        <member name="F:Blackjack.BlackjackGame.BrojSpilova">
+            <summary>
+            Da znamo s koliko spilova pocinjemo igru
+            </summary>
+        </member>
+        <member name="F:Blackjack.BlackjackGame.DoubleActive">
+            <summary>
+            Da znamo je li korisniku dostupna opcija double(ako ima tocno 2 karte).
+            </summary>
+        </member>
+        <member name="F:Blackjack.BlackjackGame.ActiveGame">
+            <summary>
+            Da znamo je li igra aktivna u trenutku
+            </summary>
+        </member>
+        <member name="P:Blackjack.Dealer.Bust">
+            <summary>
+            Da znamo je li djelitelj presao zbroj 21,tada je true,inace je false
+            </summary>
+        </member>
+        <member name="M:Blackjack.Player.#ctor(System.Int32)">
+            <summary>
+            Osnovni kontruktor.
+            </summary>
+            <param name="_money"></param>
+        </member>
+        <member name="M:Blackjack.Player.#ctor">
+            <summary>
+            Defaultni kontruktor.
+            </summary>
+        </member>
+        <member name="P:Blackjack.Player.Money">
+            <summary>
+            Kolicina novca igraca
+            </summary>
+        </member>
+        <member name="P:Blackjack.Player.Score">
+            <summary>
+            0 izjednaceno, -1 poraz  1 pobjeda
+            </summary>
+        </member>
+        <member name="P:Blackjack.Player.Bet">
+            <summary>
+            Trenutna oklada igraca.
+            </summary>
+        </member>
+        <member name="P:Blackjack.Player.LastCard">
+            <summary>
+            Svojstvo koje nam dohvati ID zadnje karte igraca,zbog lakseg dodavanja karata na ekran
+            </summary>
+        </member>
+        <member name="P:Blackjack.Player.LastCardValue">
+            <summary>
+            Svojstvo koje nam vraca vrijednost zadnje karte igraca
+            </summary>
+        </member>
+        <member name="T:Blackjack.Card">
+            <summary>
+            Klasa koja predstavlja nacrt objekta karte koja se koristi za igru blackjacka
+            </summary>
+        </member>
+        <member name="P:Blackjack.Card.ID">
+            <summary>
+            Svojstvo koje odredjuje kartu
+            </summary>
+        </member>
+        <member name="P:Blackjack.Card.Value">
+            <summary>
+            Svojstvo koje nam kaze kolika je blackjack vrijednost karte
+            </summary>
+        </member>
+        <member name="P:Blackjack.Card.IDNumber">
+            <summary>
+            Svojstvo koje govori je li karta broj ili znak sluzi za dodavanje karata na ekran
+            </summary>
+        </member>
+        <member name="T:Blackjack.Person">
+            <summary>
+            Nadklasa od igraca i djelitelja,ima njihove "glavne" osobine.
+            Ovu klasu nasljedjuju igrac i djelitelj,oboje su osoba,ali njihovo ponasanje u igri je drugacije.
+            </summary>
+        </member>
+        <member name="P:Blackjack.Person.Hand">
+            <summary>
+            Popis karata koje osoba ima u ruci
+            </summary>
+        </member>
+        <member name="M:Blackjack.Person.SetNewCard(System.Int32,System.Int32)">
+            <summary>
+            Metoda koja postavlja koordinate sljedecoj karti za igraca ili djeltielja,koja ce se pojaviti na ekranu.
+            </summary>
+        </member>
+        <member name="P:Blackjack.Person.HandValue">
+            <summary>
+            Svojstvo koje svi igraci imaju,numericka vrijednost karata u ruci koje osoba ima.
+            </summary>
+        </member>
+        <member name="P:Blackjack.Person.SoftHand">
+            <summary>
+            Svojstvo karata koje osoba ima trenutno,ovisno o broju aseva,ako jedan as u ruci ima vrijednost 11,onda je SoftHand = true,inace je false.
+            </summary>
+        </member>
+        <member name="P:Blackjack.Person.Active">
+            <summary>
+            Svojstvo da znamo je li igrac trenutno aktivan ,u smislu da on igra trenutno.
+            </summary>
+        </member>
+        <member name="M:Blackjack.Person.AddNewCard(Blackjack.Card)">
+            <summary>
+            Metoda kojom dodamo novu kartu za igraca.
+            </summary>
+        </member>
+        <member name="T:Blackjack.Deck">
+            <summary>
+            Klasa spila za igru,tj kolekcije karta kojom se igra
+            </summary>
+        </member>
+        <member name="P:Blackjack.Deck.Cards">
+            <summary>
+            Kolekcija svih karata u jednom objektu spila.
+            </summary>
+        </member>
+        <member name="M:Blackjack.Deck.Shuffle">
+            <summary>
+            Metoda koja promijesa spil karata
+            </summary>
+        </member>
+        <member name="M:Blackjack.Deck.ReturnCard">
+            <summary>
+            Metoda koja zadnju kartu u spilu doda u igru i makne ju iz spila
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Blackjack.Deck.AddDeck">
+            <summary>
+            Metoda koja nam samo treba u konstruktoru,da n puta dodamo jedan spil karata u jedan veliki.
+            </summary>
+        </member>
+    </members>
+</doc>
